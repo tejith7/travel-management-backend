@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "travel-management.fullname" . }}-frontend
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: travel-frontend
+  template:
+    metadata:
+      labels:
+        app: travel-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: {{ .Values.frontend.image }}
+          ports:
+            - containerPort: {{ .Values.frontend.service.port }}

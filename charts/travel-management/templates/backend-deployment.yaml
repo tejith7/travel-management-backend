@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "travel-management.fullname" . }}-backend
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: travel-backend
+  template:
+    metadata:
+      labels:
+        app: travel-backend
+    spec:
+      containers:
+        - name: backend
+          image: {{ .Values.backend.image }}
+          ports:
+            - containerPort: {{ .Values.backend.service.port }}

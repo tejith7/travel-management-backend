@@ -1,0 +1,17 @@
+# Java / Spring
+target/
+*.class
+*.jar
+
+# Node
+node_modules/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# IDEs
+.vscode/
+.idea/
